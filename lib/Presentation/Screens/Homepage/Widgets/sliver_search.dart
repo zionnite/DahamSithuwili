@@ -17,7 +17,7 @@ class _SliverSearchState extends State<SliverSearch> {
   @override
   Widget build(BuildContext context) {
     return const SliverAppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.lightBlue,
       elevation: 0,
       pinned: true,
       bottom: PreferredSize(preferredSize: Size.fromHeight(-10.0), child: SizedBox()),
@@ -42,7 +42,7 @@ class _SearchBarState extends State<SearchBar> {
       padding: kPadding,
       child: Container(
         margin: EdgeInsets.zero,
-        color: Colors.white,
+        color: Colors.lightBlue,
         child: Container(
           margin: EdgeInsets.zero,
           width: MediaQuery.of(context).size.width,

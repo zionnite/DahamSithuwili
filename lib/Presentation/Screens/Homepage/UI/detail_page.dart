@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:share_plus/share_plus.dart';
@@ -75,31 +76,46 @@ class _DetailPageState extends State<DetailPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              YoutubePlayerBuilder(
-                player: YoutubePlayer(
-                  controller: _controller,
-                  showVideoProgressIndicator: true,
-                  progressIndicatorColor: Colors.amber,
-                  progressColors: const ProgressBarColors(
-                    playedColor: Colors.amber,
-                    handleColor: Colors.amberAccent,
+              CachedNetworkImage(
+                imageUrl: widget.data.image,
+                height: 250,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorWidget: (context, url, error) => Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Image.asset(
+                    'assets/images/feature.png',
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
-                  onReady: () {
-                    //_controller.addListener(listener);
-                  },
                 ),
-                builder: (context, player) {
-                  return Column(
-                    children: [
-                      // some widgets
-                      player,
-                      //some other widgets
-                    ],
-                  );
-                },
               ),
+              // YoutubePlayerBuilder(
+              //   player: YoutubePlayer(
+              //     controller: _controller,
+              //     showVideoProgressIndicator: true,
+              //     progressIndicatorColor: Colors.amber,
+              //     progressColors: const ProgressBarColors(
+              //       playedColor: Colors.amber,
+              //       handleColor: Colors.amberAccent,
+              //     ),
+              //     onReady: () {
+              //       //_controller.addListener(listener);
+              //     },
+              //   ),
+              //   builder: (context, player) {
+              //     return Column(
+              //       children: [
+              //         // some widgets
+              //         player,
+              //         //some other widgets
+              //       ],
+              //     );
+              //   },
+              // ),
               const ShowBannerAd(height: 88),
-              const SizedBox(height: 50),
+              const SizedBox(height: 10),
               Column(
                 children: [
                   InkWell(
